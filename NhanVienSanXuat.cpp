@@ -7,6 +7,7 @@ NhanVienSanXuat::NhanVienSanXuat(string _MaNV, string _HoTen, string _NgaySinh, 
            SoSanPham= _SoSP;
            DonGiaSanPham= _DonGia; 
         }
+NhanVienSanXuat::~NhanVienSanXuat(){}
 
 int NhanVienSanXuat::getSoSanPham() const {return SoSanPham; }
 double NhanVienSanXuat::getDonGiaSanPham() const{return DonGiaSanPham; }
