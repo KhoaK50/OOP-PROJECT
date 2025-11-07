@@ -7,7 +7,7 @@ using namespace std;
 
 class NhanVienSanXuat : public NhanVien
 {
-private:
+protected:
     int SoSanPham;
     double DonGiaSanPham;
 public:
