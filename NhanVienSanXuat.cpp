@@ -4,11 +4,20 @@
 #include <iomanip>
 using namespace std;
 
+NhanVienSanXuat::NhanVienSanXuat()
+    : NhanVien("", "", "", ""), SoSanPham(0), DonGiaSanPham(0.0) {}
 NhanVienSanXuat::NhanVienSanXuat(string _MaNV, string _HoTen, string _NgaySinh, string _DiaChi,
         int _SoSP, double _DonGia) : NhanVien(_MaNV, _HoTen, _NgaySinh, _DiaChi){
            SoSanPham= _SoSP;
            DonGiaSanPham= _DonGia; 
         }
+NhanVienSanXuat::NhanVienSanXuat(const NhanVienSanXuat& nv)
+    : NhanVien(nv)
+{
+    SoSanPham = nv.SoSanPham;
+    DonGiaSanPham = nv.DonGiaSanPham;
+}
+
 NhanVienSanXuat::~NhanVienSanXuat(){}
 
 int NhanVienSanXuat::getSoSanPham() const {return SoSanPham; }
@@ -21,13 +30,12 @@ double NhanVienSanXuat::TinhLuong() const {
 }
 
 void NhanVienSanXuat::HienThiThongTin() const {
-    cout << "Ma NV: " << getMaNV() << endl;
-    cout << "Ho ten: " << getHoTen() << endl;
-    cout << "Ngay sinh: " << getNgaySinh() << endl;
-    cout << "Dia chi: " << getDiaChi() << endl;
-    cout << "So san pham: " << SoSanPham << endl;
-    cout << "Don gia san pham: " << fixed << setprecision(2) << DonGiaSanPham << endl;
-    cout << "Luong thang: " << fixed << setprecision(2) << TinhLuong() << endl;
+    cout << "[NhanVienSanXuat] "
+         << getMaNV() << " - " << getHoTen()
+         << " | San pham: " << SoSanPham
+         << " | Don gia: " << fixed << setprecision(2) << DonGiaSanPham
+         << " | Luong: " << fixed << setprecision(2) << TinhLuong()
+         << endl;
 }
 
 istream& operator>>(istream& in, NhanVienSanXuat& nv) {
