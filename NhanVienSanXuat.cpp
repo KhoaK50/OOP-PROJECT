@@ -21,7 +21,6 @@ double NhanVienSanXuat::TinhLuong() const {
 }
 
 void NhanVienSanXuat::HienThiThongTin() const {
-    cout << "===== NHAN VIEN SAN XUAT =====" << endl;
     cout << "Ma NV: " << getMaNV() << endl;
     cout << "Ho ten: " << getHoTen() << endl;
     cout << "Ngay sinh: " << getNgaySinh() << endl;
