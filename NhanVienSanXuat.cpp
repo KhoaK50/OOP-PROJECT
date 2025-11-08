@@ -1,5 +1,7 @@
 #include "NhanVienSanXuat.h"
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
 NhanVienSanXuat::NhanVienSanXuat(string _MaNV, string _HoTen, string _NgaySinh, string _DiaChi,
