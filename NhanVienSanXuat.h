@@ -11,8 +11,10 @@ protected:
     int SoSanPham;
     double DonGiaSanPham;
 public:
+    NhanVienSanXuat();
     NhanVienSanXuat(string _MaNV = "", string _HoTen = "", string _NgaySinh = "", string _DiaChi = "",
                     int _SoSP = 0, double _DonGia = 0);
+    NhanVienSanXuat(const NhanVienSanXuat& nv);
     ~NhanVienSanXuat();
 
     int getSoSanPham() const;
