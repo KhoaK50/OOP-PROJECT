@@ -1,5 +1,6 @@
 #include "NhanVien.h"
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
 using namespace std;
 
 //  Constructor 
@@ -8,6 +9,13 @@ NhanVien::NhanVien(string _MaNV, string _HoTen, string _NgaySinh, string _DiaChi
     HoTen = _HoTen;
     NgaySinh = _NgaySinh;
     DiaChi = _DiaChi;
+}
+
+NhanVien::NhanVien(const NhanVien &nv) {
+    MaNV = nv.MaNV;
+    HoTen = nv.HoTen;
+    NgaySinh = nv.NgaySinh;
+    DiaChi = nv.DiaChi;
 }
 
 //  Getter - Setter
@@ -32,7 +40,7 @@ void NhanVien::HienThiThongTin() const{
 //  Quá tải nhập xuất 
 istream& operator>>(istream& in, NhanVien& nv){
     cout<<"Nhap ma NV: ";
-    getline(in , nv.MaNV);
+    getline(in, nv.MaNV);
     cout<<"Nhap ho ten: ";
     getline(in, nv.HoTen);
     cout<<"Nhap ngay sinh: ";
@@ -49,3 +57,4 @@ ostream& operator<<(ostream& out, const NhanVien& nv) {
     out<<"Dia chi: "<<nv.DiaChi<<endl;
     return out;
 }
+
