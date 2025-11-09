@@ -1,5 +1,6 @@
-#include <bits/stdc++.h>
 #pragma once
+#include <iostream>
+#include <string>
 using namespace std;
 
 class NhanVien {
@@ -7,6 +8,7 @@ private:
     string MaNV, HoTen, NgaySinh, DiaChi;
 public:
     NhanVien(string _MaNV = "", string _HoTen = "", string _NgaySinh = "", string _DiaChi = "");
+    NhanVien(const NhanVien &nv);
     virtual ~NhanVien() {}
 
     // Getter & Setter
@@ -28,5 +30,6 @@ public:
     friend istream& operator>>(istream& in, NhanVien& nv);
     friend ostream& operator<<(ostream& out, const NhanVien& nv);
 };
+
 
 
