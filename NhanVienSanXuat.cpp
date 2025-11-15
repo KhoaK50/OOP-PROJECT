@@ -30,11 +30,14 @@ double NhanVienSanXuat::TinhLuong() const {
 }
 
 void NhanVienSanXuat::HienThiThongTin() const {
-    cout << "[NhanVienSanXuat] "
-         << getMaNV() << " - " << getHoTen()
-         << " | San pham: " << SoSanPham
-         << " | Don gia: " << fixed << setprecision(2) << DonGiaSanPham
-         << " | Luong: " << fixed << setprecision(2) << TinhLuong()
+    cout << left
+         << setw(10) << getMaNV()
+         << setw(20) << getHoTen()
+         << setw(12) << getNgaySinh()
+         << setw(18) << getDiaChi()
+         << setw(12) << SoSanPham
+         << setw(12) << fixed << setprecision(2) << DonGiaSanPham
+         << setw(15) << fixed << setprecision(2) << TinhLuong()
          << endl;
 }
 
