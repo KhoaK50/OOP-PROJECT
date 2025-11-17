@@ -5,12 +5,14 @@
 #include <string>
 using namespace std;
 
+
 class QuanLi : public NhanVien
 {
 protected:
     double LuongCoBan;
     double LuongTrachNhiem;
     double HeSoHieuSuat;
+
 
 public:
     QuanLi();
@@ -19,16 +21,20 @@ public:
     QuanLi(const QuanLi& nv);
     ~QuanLi();
 
+
     double getLuongCoBan() const;
     double getLuongTrachNhiem() const;
     double getHeSoHieuSuat() const;
+
 
     void setLuongCoBan(double);
     void setLuongTrachNhiem(double);
     void setHeSoHieuSuat(double);
 
+
     double TinhLuong() const;
     void HienThiThongTin() const;
+
 
     friend istream& operator>>(istream& in, QuanLi& nv);
     friend ostream& operator<<(ostream& out, const QuanLi& nv);
