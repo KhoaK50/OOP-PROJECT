@@ -6,11 +6,12 @@
 using namespace std;
 
 
-class NhanVienSanXuat : public NhanVien
-{
-protected:
+class NhanVienSanXuat : public NhanVien {
+
+private:
     int SoSanPham;
     double DonGiaSanPham;
+    
 public:
     NhanVienSanXuat();
     NhanVienSanXuat(string _MaNV, string _HoTen, string _NgaySinh, string _DiaChi, int _SoSP, double _DonGia);

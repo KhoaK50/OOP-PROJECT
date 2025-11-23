@@ -44,6 +44,8 @@ void NhanVienSanXuat::HienThiThongTin() const {
 
 istream& operator>>(istream& in, NhanVienSanXuat& nv) {
     string ma, ten, ngay, dia;
+    int soSP;
+    double donGia;
 
     cout << "Nhập mã nhân viên  : ";
     getline(in >> ws, ma);
@@ -53,16 +55,17 @@ istream& operator>>(istream& in, NhanVienSanXuat& nv) {
     getline(in, ngay);
     cout << "Nhập địa chỉ       : ";
     getline(in, dia);
+    cout << "Nhập số sản phẩm         : ";
+    in >> soSP;
+    cout << "Nhập đơn giá sản phẩm    : ";
+    in >> donGia;
 
     nv.setMaNV(ma);
     nv.setHoTen(ten);
     nv.setNgaySinh(ngay);
     nv.setDiaChi(dia);
-
-    cout << "Nhập số sản phẩm         : ";
-    in >> nv.SoSanPham;
-    cout << "Nhập đơn giá sản phẩm    : ";
-    in >> nv.DonGiaSanPham;
+    nv.setSoSanPham(soSP);
+    nv.setDonGiaSanPham(donGia);
 
     in.ignore(numeric_limits<streamsize>::max(), '\n');
     return in;

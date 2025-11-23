@@ -42,21 +42,21 @@ NhanVienVanPhong::NhanVienVanPhong(const NhanVienVanPhong& nv)
 
 NhanVienVanPhong::~NhanVienVanPhong() {}
 
-int NhanVienVanPhong::getSoNgayLamViec() const { return SoNgayLamViec;}
-int NhanVienVanPhong::getSoNgayLe() const { return SoNgayLe;}
-double NhanVienVanPhong::getDonGiaNgay() const { return DonGiaNgay;}
-double NhanVienVanPhong::getPhuCap() const { return PhuCap;}
-double NhanVienVanPhong::getGioLamThemNgayThuong() const { return GioLamThemNgayThuong;}
-double NhanVienVanPhong::getGioLamThemCuoiTuan() const { return GioLamThemCuoiTuan;}
-double NhanVienVanPhong::getGioLamThemLeTet() const { return GioLamThemLeTet;}
+int    NhanVienVanPhong::getSoNgayLamViec() const          { return SoNgayLamViec;}
+int    NhanVienVanPhong::getSoNgayLe() const               { return SoNgayLe;}
+double NhanVienVanPhong::getDonGiaNgay() const             { return DonGiaNgay;}
+double NhanVienVanPhong::getPhuCap() const                 { return PhuCap;}
+double NhanVienVanPhong::getGioLamThemNgayThuong() const   { return GioLamThemNgayThuong;}
+double NhanVienVanPhong::getGioLamThemCuoiTuan() const     { return GioLamThemCuoiTuan;}
+double NhanVienVanPhong::getGioLamThemLeTet() const        { return GioLamThemLeTet;}
 
-void NhanVienVanPhong::setSoNgayLamViec(int n) { SoNgayLamViec = n;}
-void NhanVienVanPhong::setSoNgayLe(int n) { SoNgayLe = n;}
-void NhanVienVanPhong::setDonGiaNgay(double g) { DonGiaNgay = g;}
-void NhanVienVanPhong::setPhuCap(double p) { PhuCap = p;}
-void NhanVienVanPhong::setGioLamThemNgayThuong(double h) { GioLamThemNgayThuong = h;}
-void NhanVienVanPhong::setGioLamThemCuoiTuan(double h) { GioLamThemCuoiTuan = h;}
-void NhanVienVanPhong::setGioLamThemLeTet(double h) { GioLamThemLeTet = h;}
+void   NhanVienVanPhong::setSoNgayLamViec(int n)           { SoNgayLamViec = n;}
+void   NhanVienVanPhong::setSoNgayLe(int n)                { SoNgayLe = n;}
+void   NhanVienVanPhong::setDonGiaNgay(double g)           { DonGiaNgay = g;}
+void   NhanVienVanPhong::setPhuCap(double p)               { PhuCap = p;}
+void   NhanVienVanPhong::setGioLamThemNgayThuong(double h) { GioLamThemNgayThuong = h;}
+void   NhanVienVanPhong::setGioLamThemCuoiTuan(double h)   { GioLamThemCuoiTuan = h;}
+void   NhanVienVanPhong::setGioLamThemLeTet(double h)      { GioLamThemLeTet = h;}
 
 
 double NhanVienVanPhong::TinhLuong() const {
@@ -91,6 +91,9 @@ void NhanVienVanPhong::HienThiThongTin() const {
 
 istream& operator>>(istream& in, NhanVienVanPhong& nv) {
     string ma, ten, ngay, dia;
+    int    soNgayLamViec, soNgayLe;
+    double donGiaNgay, phuCap, gioLamThemNgayThuong,
+           gioLamThemCuoiTuan, gioLamThemLeTet;
 
     cout << "Nhập mã nhân viên  : ";
     getline(in >> ws, ma);
@@ -100,26 +103,33 @@ istream& operator>>(istream& in, NhanVienVanPhong& nv) {
     getline(in, ngay);
     cout << "Nhập địa chỉ       : ";
     getline(in, dia);
+    cout << "Nhập số ngày làm thường  : ";
+    in >> soNgayLamViec;
+    cout << "Nhập số ngày làm lễ/tết  : ";
+    in >> soNgayLe;
+    cout << "Nhập đơn giá ngày        : ";
+    in >> donGiaNgay;
+    cout << "Nhập phụ cấp             : ";
+    in >> phuCap;
+    cout << "Nhập giờ làm thêm ngày thường  : ";
+    in >> gioLamThemNgayThuong;
+    cout << "Nhập giờ làm thêm cuối tuần    : ";
+    in >> gioLamThemCuoiTuan;
+    cout << "Nhập giờ làm thêm ngày lễ/tết  : ";
+    in >> gioLamThemLeTet;
+
 
     nv.setMaNV(ma);
     nv.setHoTen(ten);
     nv.setNgaySinh(ngay);
     nv.setDiaChi(dia);
-
-    cout << "Nhập số ngày làm thường  : ";
-    in >> nv.SoNgayLamViec;
-    cout << "Nhập số ngày làm lễ/tết  : ";
-    in >> nv.SoNgayLe;
-    cout << "Nhập đơn giá ngày        : ";
-    in >> nv.DonGiaNgay;
-    cout << "Nhập phụ cấp             : ";
-    in >> nv.PhuCap;
-    cout << "Nhập giờ làm thêm ngày thường  : ";
-    in >> nv.GioLamThemNgayThuong;
-    cout << "Nhập giờ làm thêm cuối tuần    : ";
-    in >> nv.GioLamThemCuoiTuan;
-    cout << "Nhập giờ làm thêm ngày lễ/tết  : ";
-    in >> nv.GioLamThemLeTet;
+    nv.setSoNgayLamViec(soNgayLamViec);
+    nv.setSoNgayLe(soNgayLe);
+    nv.setDonGiaNgay(donGiaNgay);
+    nv.setPhuCap(phuCap);
+    nv.setGioLamThemNgayThuong(gioLamThemNgayThuong);
+    nv.setGioLamThemCuoiTuan(gioLamThemCuoiTuan);
+    nv.setGioLamThemLeTet(gioLamThemLeTet);
 
     in.ignore(numeric_limits<streamsize>::max(), '\n');
     return in;

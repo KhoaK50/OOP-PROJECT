@@ -3,11 +3,12 @@
 #include <iomanip>
 #include <ctime>
 #include <limits>
+#include <sstream>
 
 using namespace std;
 
-string LayThoiGianHeThong() {
-    time_t now = time(nullptr);
+string getRealTime() {
+    time_t now = time(NULL);
     tm *ltm = localtime(&now);
 
     stringstream ss;

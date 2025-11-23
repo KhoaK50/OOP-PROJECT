@@ -6,8 +6,8 @@ using namespace std;
 
 // Lưu 1 dòng lịch sử nhập
 struct LichSuDong {
-    string ThoiGian;    // thời gian thực
-    string LoaiNV;      // OS/PS/MG
+    string ThoiGian;    
+    string LoaiNV;      
     string DongCoBan;   // output từ operator<< (| MaNV | HoTen | NgaySinh | DiaChi |)
 };
 

@@ -32,6 +32,5 @@ void NhanVien::HienThiThongTin() const {
          << "|" << setw(20) << MaNV
          << "|" << setw(30) << HoTen
          << "|" << setw(15) << NgaySinh
-         << "|" << setw(30) << DiaChi
-         << "|";
+         << "|" << setw(30) << DiaChi << "\n";
 }

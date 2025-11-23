@@ -3,7 +3,7 @@
 
 #include "../models/NhanVienVanPhong.h"
 #include "../models/NhanVienSanXuat.h"
-#include "../models/QuanLi.h"
+#include "../models/QuanLy.h"
 
 #include "../core/TienIch.h"
 #include "../core/LichSuNhap.h"
@@ -21,7 +21,7 @@ using namespace std;
 
 static vector<NhanVienVanPhong> dsNVVP;
 static vector<NhanVienSanXuat>  dsNVSX;
-static vector<QuanLi>           dsQL;
+static vector<QuanLy>           dsQL;
 
 // ================== HÀM HỖ TRỢ TÌM / EDIT / DELETE ==================
 
@@ -125,7 +125,7 @@ static void EditOfficeStaffFields(NhanVienVanPhong &nv) {
             nv.setGioLamThemLeTet(dVal);
             break;
         default:
-            cout << "Invalid choice.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             break;
         }
     }
@@ -176,7 +176,7 @@ static void SearchEditDeleteOfficeStaff() {
         if (!(cin >> sel)) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -187,7 +187,7 @@ static void SearchEditDeleteOfficeStaff() {
             return;
         }
         if (sel < 1 || sel > (int)matches.size()) {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -195,7 +195,7 @@ static void SearchEditDeleteOfficeStaff() {
     }
 
     if (idx < 0 || idx >= (int)dsNVVP.size()) {
-        cout << "Unexpected index error.\n";
+        cout << "\033[1;31mUnexpected index error.\033[0m.\n";
         PauseConsole();
         return;
     }
@@ -245,13 +245,19 @@ static void SearchEditDeleteOfficeStaff() {
                 cout << "\n\033[1;32mRecord deleted.\033[0m\n";
                 PauseConsole();
                 return;
-            } else {
-                cout << "Delete cancelled.\n";
+            } 
+            else if (conf == 'N' || conf == 'n') {
+                cout << "\033[1;33mDelete cancelled.\033[0m\n";
+                PauseConsole();
+                return;
+            }
+            else {
+                cout << "\033[1;31mInvalid choice. Please enter Y or N.\033[0m\n";
                 PauseConsole();
                 return;
             }
         } else {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
         }
     }
 }
@@ -321,7 +327,7 @@ static void EditProductionStaffFields(NhanVienSanXuat &nv) {
             nv.setDonGiaSanPham(dVal);
             break;
         default:
-            cout << "Invalid choice.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             break;
         }
     }
@@ -372,7 +378,7 @@ static void SearchEditDeleteProductionStaff() {
         if (!(cin >> sel)) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -383,7 +389,7 @@ static void SearchEditDeleteProductionStaff() {
             return;
         }
         if (sel < 1 || sel > (int)matches.size()) {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -391,7 +397,7 @@ static void SearchEditDeleteProductionStaff() {
     }
 
     if (idx < 0 || idx >= (int)dsNVSX.size()) {
-        cout << "Unexpected index error.\n";
+        cout << "\033[1;31mUnexpected index error.\033[0m.\n";
         PauseConsole();
         return;
     }
@@ -441,19 +447,25 @@ static void SearchEditDeleteProductionStaff() {
                 cout << "\n\033[1;32mRecord deleted.\033[0m\n";
                 PauseConsole();
                 return;
-            } else {
-                cout << "Delete cancelled.\n";
+            } 
+            else if (conf == 'N' || conf == 'n') {
+                cout << "\033[1;33mDelete cancelled.\033[0m\n";
+                PauseConsole();
+                return;
+            }
+            else {
+                cout << "\033[1;31mInvalid choice. Please enter Y or N.\033[0m\n";
                 PauseConsole();
                 return;
             }
         } else {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
         }
     }
 }
 
 // ---- MANAGER ----
-static void EditManagerFields(QuanLi &nv) {
+static void EditManagerFields(QuanLy &nv) {
     while (true) {
         cout << "\n\033[1;36mEDIT MANAGER FIELDS\033[0m\n";
         cout << "Current: " << nv.getMaNV() << " - " << nv.getHoTen() << "\n\n";
@@ -523,7 +535,7 @@ static void EditManagerFields(QuanLi &nv) {
             nv.setHeSoHieuSuat(dVal);
             break;
         default:
-            cout << "Invalid choice.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             break;
         }
     }
@@ -574,7 +586,7 @@ static void SearchEditDeleteManager() {
         if (!(cin >> sel)) {
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -585,7 +597,7 @@ static void SearchEditDeleteManager() {
             return;
         }
         if (sel < 1 || sel > (int)matches.size()) {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
             PauseConsole();
             return;
         }
@@ -593,13 +605,13 @@ static void SearchEditDeleteManager() {
     }
 
     if (idx < 0 || idx >= (int)dsQL.size()) {
-        cout << "Unexpected index error.\n";
+        cout << "\033[1;31mUnexpected index error.\033[0m.\n";
         PauseConsole();
         return;
     }
 
     while (true) {
-        QuanLi &nv = dsQL[idx];
+        QuanLy &nv = dsQL[idx];
 
         cout << "\n\033[1;36mTARGET RECORD\033[0m: "
              << nv.getMaNV() << " - " << nv.getHoTen() << "\n\n";
@@ -623,7 +635,7 @@ static void SearchEditDeleteManager() {
             return;
         } else if (act == 1) {
             cout << "\n\033[1;95mRE-ENTER ALL INFORMATION\033[0m\n";
-            QuanLi temp;
+            QuanLy temp;
             cin >> temp;
             dsQL[idx] = temp;
             cout << "\n\033[1;32mRecord updated successfully.\033[0m\n";
@@ -643,25 +655,31 @@ static void SearchEditDeleteManager() {
                 cout << "\n\033[1;32mRecord deleted.\033[0m\n";
                 PauseConsole();
                 return;
-            } else {
-                cout << "Delete cancelled.\n";
+            } 
+            else if (conf == 'N' || conf == 'n') {
+                cout << "\033[1;33mDelete cancelled.\033[0m\n";
+                PauseConsole();
+                return;
+            }
+            else {
+                cout << "\033[1;31mInvalid choice. Please enter Y or N.\033[0m\n";
                 PauseConsole();
                 return;
             }
         } else {
-            cout << "Invalid selection.\n";
+            cout << "\033[1;31mInvalid Selection.\033[0m.\n";
         }
     }
 }
 
-// ================== HÀM XUẤT LỊCH SỬ NHẬP RIÊNG ==================
+// ================== HÀM XUẤT DANH SÁCH THÔNG TIN ==================
 
-// Lịch sử nhập riêng cho Văn phòng
-void XuatLichSuVanPhong() {
+// Danh sách thông tin cho Văn phòng
+void XuatThongTinVanPhong() {
     ClearConsole();
     PrintBannerQLNS();
 
-    cout << "\033[1;95m=== OFFICE EMPLOYEE ENTRY HISTORY ===\033[0m\n\n";
+    cout << "\033[1;95m=== Office Employee Records ===\033[0m\n\n";
 
     if (dsNVVP.empty()) {
         cout << "\033[1;31mNO DATA!\033[0m\n";
@@ -703,12 +721,12 @@ void XuatLichSuVanPhong() {
     PauseConsole();
 }
 
-// Lịch sử nhập riêng cho Sản xuất
-void XuatLichSuSanXuat() {
+// Danh sách thông tin cho Sản xuất
+void XuatThongTinSanXuat() {
     ClearConsole();
     PrintBannerQLNS();
 
-    cout << "\033[1;95m=== Production Employee Entry History ===\033[0m\n\n";
+    cout << "\033[1;95m=== Production Employee Records ===\033[0m\n\n";
 
     if (dsNVSX.empty()) {
         cout << "\033[1;31mNO DATA!\033[0m\n";
@@ -740,12 +758,12 @@ void XuatLichSuSanXuat() {
     PauseConsole();
 }
 
-// Lịch sử nhập riêng cho Quản lí
-void XuatLichSuQuanLi() {
+// Danh sách thông tin cho Quản lí
+void XuatThongTinQuanLy() {
     ClearConsole();
     PrintBannerQLNS();
 
-    cout << "\033[1;95m=== Manager Entry History ===\033[0m\n\n";
+    cout << "\033[1;95m=== Manager Records ===\033[0m\n\n";
 
     if (dsQL.empty()) {
         cout << "\033[1;31mNO DATA!\033[0m\n";
@@ -788,7 +806,7 @@ void MenuVanPhong() {
 
         cout << "\033[1;95m=== OFFICE STAFF ===\033[0m\n";
         cout << "\033[36m1.\033[0m Enter information\n";
-        cout << "\033[36m2.\033[0m Entry History \n";
+        cout << "\033[36m2.\033[0m Records \n";
         cout << "\033[36m3.\033[0m Search / Edit / Delete by Employee ID\n";
         cout << "\033[36m0.\033[0m Back to Main Menu\n";
         cout << "Select: ";
@@ -799,7 +817,7 @@ void MenuVanPhong() {
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
             continue;
         }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n'); // bỏ '\n'
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
 
         if (ch == 0) break;
 
@@ -822,7 +840,7 @@ void MenuVanPhong() {
             break;
         }
         case 2:
-            XuatLichSuVanPhong();
+            XuatThongTinVanPhong();
             break;
         case 3:
             SearchEditDeleteOfficeStaff();
@@ -840,7 +858,7 @@ void MenuSanXuat() {
 
         cout << "\033[1;95m=== PRODUCTION STAFF ===\033[0m\n";
         cout << "\033[36m1.\033[0m Enter information\n";
-        cout << "\033[36m2.\033[0m Entry History\n";
+        cout << "\033[36m2.\033[0m Records\n";
         cout << "\033[36m3.\033[0m Search / Edit / Delete by Employee ID\n";
         cout << "\033[36m0.\033[0m Back to Main Menu\n";
         cout << "Select: ";
@@ -874,7 +892,7 @@ void MenuSanXuat() {
             break;
         }
         case 2:
-            XuatLichSuSanXuat();
+            XuatThongTinSanXuat();
             break;
         case 3:
             SearchEditDeleteProductionStaff();
@@ -885,14 +903,14 @@ void MenuSanXuat() {
     }
 }
 
-void MenuQuanLi() {
+void MenuQuanLy() {
     while (true) {
         ClearConsole();
         PrintBannerQLNS();
 
         cout << "\033[1;95m=== MANAGER ===\033[0m\n";
         cout << "\033[36m1.\033[0m Enter information\n";
-        cout << "\033[36m2.\033[0m Entry History\n";
+        cout << "\033[36m2.\033[0m Records\n";
         cout << "\033[36m3.\033[0m Search / Edit / Delete by Employee ID\n";
         cout << "\033[36m0.\033[0m Back to Main Menu\n";
         cout << "Select: ";
@@ -913,7 +931,7 @@ void MenuQuanLi() {
             PrintBannerQLNS();
             cout << "\033[1;95m=== MANAGER - INFORMATION ENTRY ===\033[0m\n\n";
 
-            QuanLi ql;
+            QuanLy ql;
             cin >> ql;
             dsQL.push_back(ql);
 
@@ -926,7 +944,7 @@ void MenuQuanLi() {
             break;
         }
         case 2:
-            XuatLichSuQuanLi();
+            XuatThongTinQuanLy();
             break;
         case 3:
             SearchEditDeleteManager();
@@ -968,7 +986,7 @@ void MenuChinh() {
             MenuSanXuat();
             break;
         case 3:
-            MenuQuanLi();
+            MenuQuanLy();
             break;
         case 4:
             XuatLichSuTong();  

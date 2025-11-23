@@ -12,8 +12,8 @@ static vector<LichSuDong> dsLichSu;
 
 void GhiLichSu(const string& loaiNV, const string& dong) {
     LichSuDong log;
-    log.ThoiGian = LayThoiGianHeThong();
-    log.LoaiNV   = loaiNV;
+    log.ThoiGian  = getRealTime();
+    log.LoaiNV    = loaiNV;
     log.DongCoBan = dong;       
     dsLichSu.push_back(log);
 
@@ -55,7 +55,7 @@ void GhiLichSu(const string& loaiNV, const string& dong) {
 
 void XuatLichSuTong() {
     ClearConsole();
-
+    
     cout << "\033[1;95m==== ALL RECORDS ====\033[0m\n\n";
 
     if (dsLichSu.empty()) {

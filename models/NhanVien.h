@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
 #pragma once
+#include <iostream>
+#include <string>
+#include <iomanip>
 using namespace std;
 
 
@@ -28,7 +30,4 @@ public:
     virtual double TinhLuong() const = 0;
     virtual void HienThiThongTin() const;
 
-
-    friend istream& operator>>(istream& in, NhanVien& nv);
-    friend ostream& operator<<(ostream& out, const NhanVien& nv);
 };

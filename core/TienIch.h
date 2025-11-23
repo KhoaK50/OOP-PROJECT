@@ -2,6 +2,6 @@
 #include <string>
 using namespace std;
 
-string LayThoiGianHeThong();
+string getRealTime();
 void ClearConsole();
 void PauseConsole();

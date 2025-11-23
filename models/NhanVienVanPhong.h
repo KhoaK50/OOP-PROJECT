@@ -4,18 +4,19 @@
 #include<iomanip>
 #include<string>
 
-
 using namespace std;
-class NhanVienVanPhong : public NhanVien
-{
-protected:
-    int SoNgayLamViec;//số ngày làm việc bình thường
-    int SoNgayLe;//số ngày làm việc Lễ, Tết
-    double DonGiaNgay;//Đơn giá ngày thường
-    double PhuCap;//Phụ cấp (có thể 0 nếu không có)
-    double GioLamThemNgayThuong;//Giờ làm thêm ngày thường
-    double GioLamThemCuoiTuan;//Giờ làm thêm cuối tuần
-    double GioLamThemLeTet;//Giờ làm thêm ngày Lễ, Tết
+
+class NhanVienVanPhong : public NhanVien {
+
+private:
+    int SoNgayLamViec;
+    int SoNgayLe;
+    double DonGiaNgay;
+    double PhuCap;
+    double GioLamThemNgayThuong;
+    double GioLamThemCuoiTuan;
+    double GioLamThemLeTet;
+    
 public:
     NhanVienVanPhong();
     NhanVienVanPhong(string _MaNV, string _HoTen, string _NgaySinh, string _DiaChi, int _SoNgayLamViec, int _SoNgayLe,
